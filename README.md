@@ -1,2 +1,2 @@
-# Bobo.github.io
+# Bobo
 A personal website
