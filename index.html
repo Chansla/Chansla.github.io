@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="爱的纪念 - 记录我们在一起的每一刻">
+    <title>我爱你</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 音乐控制按钮 -->
+    <div class="music-control" id="musicControl">
+        <span class="music-icon">♪</span>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="music/bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 点击提示 -->
+    <div class="click-hint" id="clickHint">
+        <p>点击任意位置开始</p>
+    </div>
+
+    <div class="container">
+        <!-- 左侧文字区域 -->
+        <div class="content-left">
+            <div class="love-letter">
+                <p class="greeting">亲爱的<span id="loverName">何月</span>，这是我给你的第一个大的惊喜、</p>
+                
+                <p class="paragraph">
+                    我知道我不太善于甜言蜜语，但是我会慢慢地，用我的<br>
+                    行动证明一切、
+                </p>
+                
+                <p class="paragraph">
+                    和你相识的这段时间，真的很开心、<br>
+                    是你，让我的世界再一次的被点亮、<br>
+                    也同样是你，让我有了不断前进的动力、<br>
+                    以前，现在，未来，我们一起一直走下去！
+                </p>
+                
+                <p class="signature">-- 爱你的<span id="authorName">雨晴</span>--</p>
+            </div>
+
+            <!-- 计时器区域 -->
+            <div class="timer-section">
+                <p class="timer-title">
+                    <span class="highlight">亲爱的<span id="loverName2">小月月</span>，我们在一起</span> 已经......
+                </p>
+                <div class="timer">
+                    <span class="time-block">
+                        <span class="prefix">第</span>
+                        <span class="number" id="days">0</span>
+                        <span class="unit">天</span>
+                    </span>
+                    <span class="time-block">
+                        <span class="number" id="hours">0</span>
+                        <span class="unit">小时</span>
+                    </span>
+                    <span class="time-block">
+                        <span class="number" id="minutes">0</span>
+                        <span class="unit">分钟</span>
+                    </span>
+                    <span class="time-block">
+                        <span class="number" id="seconds">0</span>
+                        <span class="unit">秒</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧心形树 -->
+        <div class="content-right">
+            <div class="tree-container">
+                <!-- 树干 SVG -->
+                <svg class="tree-svg" viewBox="0 0 300 1000" preserveAspectRatio="xMidYMax meet">
+                    <!-- 主树干 - 从底部到心形底部 -->
+                    <path class="trunk" d="M150,1000 
+                        Q145,900 148,800 
+                        Q152,700 147,600 
+                        Q143,520 150,460" />
+                    
+                    <!-- 简单的几个小分支在树干上 -->
+                    <path class="branch-thin" d="M147,700 Q120,690 100,685" />
+                    <path class="branch-thin" d="M148,750 Q175,740 195,735" />
+                    <path class="branch-thin" d="M146,650 Q115,640 90,638" />
+                    <path class="branch-thin" d="M149,800 Q180,790 210,788" />
+                    <path class="branch-tiny" d="M147,850 Q125,845 110,843" />
+                    <path class="branch-tiny" d="M148,900 Q170,895 185,893" />
+                </svg>
+                
+                <!-- 心形叶子容器 -->
+                <div class="hearts-container" id="heartsContainer"></div>
+                <!-- 飘落的心形容器 -->
+                <div class="falling-hearts" id="fallingHearts"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部装饰线 -->
+    <div class="bottom-line"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

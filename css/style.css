@@ -1,0 +1,510 @@
+/* 基础重置和变量 */
+:root {
+    --primary-red: #d94a38;
+    --accent-pink: #ff69b4;
+    --accent-orange: #ff8c42;
+    --accent-yellow: #ffd700;
+    --text-dark: #333;
+    --text-gray: #666;
+    --bg-gradient-start: #fff5f5;
+    --bg-gradient-end: #ffe4e1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ZCOOL KuaiLe', 'Microsoft YaHei', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+/* 音乐控制按钮 */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.music-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.music-control.playing .music-icon {
+    animation: musicPulse 1s ease-in-out infinite;
+}
+
+.music-icon {
+    font-size: 24px;
+    color: var(--primary-red);
+}
+
+@keyframes musicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* 点击提示 */
+.click-hint {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.click-hint.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.click-hint p {
+    font-size: 28px;
+    color: var(--primary-red);
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* 主容器 */
+.container {
+    display: flex;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 40px 60px 100px;
+    gap: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* 左侧内容 */
+.content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+/* 情书样式 */
+.love-letter {
+    max-width: 600px;
+}
+
+.love-letter .greeting {
+    font-size: 22px;
+    color: var(--primary-red);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.love-letter .paragraph {
+    font-size: 20px;
+    color: var(--primary-red);
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.love-letter .signature {
+    font-size: 20px;
+    color: var(--primary-red);
+    margin-top: 40px;
+    text-align: center;
+    max-width: 400px;
+}
+
+/* 计时器区域 */
+.timer-section {
+    margin-top: auto;
+    padding-top: 60px;
+}
+
+.timer-title {
+    font-size: 24px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+.timer-title .highlight {
+    color: var(--primary-red);
+    font-weight: bold;
+}
+
+.timer {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.time-block {
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.time-block .prefix {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-right: 5px;
+}
+
+.time-block .number {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 72px;
+    color: var(--text-dark);
+    line-height: 1;
+    min-width: 80px;
+    text-align: center;
+}
+
+.time-block .unit {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-left: 2px;
+    margin-right: 15px;
+}
+
+/* 右侧心形树 */
+.content-right {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.tree-container {
+    position: relative;
+    width: 60vw;
+    max-width: 800px;
+    min-width: 400px;
+    height: 100vh;
+}
+
+/* SVG 树样式 */
+.tree-svg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    overflow: visible;
+}
+
+/* 树干 */
+.trunk {
+    fill: none;
+    stroke: #2a1f15;
+    stroke-width: 45;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.4));
+}
+
+/* 细树枝 */
+.branch-thin {
+    fill: none;
+    stroke: #5a4332;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* 最细的树枝 */
+.branch-tiny {
+    fill: none;
+    stroke: #6b5240;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* 心形叶子容器 */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 60%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 心形叶子 */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    transform: rotate(-45deg);
+    animation: heartFloat 3s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: currentColor;
+    border-radius: 20px 20px 0 0;
+}
+
+.heart::before {
+    left: 10px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartFloat {
+    0%, 100% { transform: rotate(-45deg) translateY(0); }
+    50% { transform: rotate(-45deg) translateY(-5px); }
+}
+
+/* 飘落的心形 */
+.falling-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 3;
+}
+
+.falling-heart {
+    position: absolute;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(600px) rotate(720deg) scale(0.3);
+    }
+}
+
+/* 心形飘落时的摇摆 */
+.falling-heart.sway-left {
+    animation: fallSwayLeft linear forwards;
+}
+
+.falling-heart.sway-right {
+    animation: fallSwayRight linear forwards;
+}
+
+@keyframes fallSwayLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50px) translateY(150px) rotate(180deg);
+    }
+    50% {
+        transform: translateX(20px) translateY(300px) rotate(360deg);
+    }
+    75% {
+        transform: translateX(-35px) translateY(480px) rotate(540deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(0) translateY(650px) rotate(720deg);
+    }
+}
+
+@keyframes fallSwayRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(50px) translateY(150px) rotate(-180deg);
+    }
+    50% {
+        transform: translateX(-20px) translateY(300px) rotate(-360deg);
+    }
+    75% {
+        transform: translateX(35px) translateY(480px) rotate(-540deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(0) translateY(650px) rotate(-720deg);
+    }
+}
+
+/* 底部装饰线 */
+.bottom-line {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, 
+        var(--primary-red) 0%, 
+        var(--accent-orange) 25%, 
+        var(--accent-yellow) 50%, 
+        var(--accent-orange) 75%, 
+        var(--primary-red) 100%
+    );
+}
+
+/* 响应式设计 */
+@media (max-width: 1400px) {
+    .container {
+        padding: 40px 30px 100px;
+        gap: 20px;
+    }
+    
+    .content-right {
+        flex: 1;
+    }
+    
+    .tree-container {
+        width: 55vw;
+        min-width: 400px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 30px 20px 100px;
+    }
+    
+    .tree-container {
+        width: 50vw;
+        min-width: 380px;
+    }
+    
+    .love-letter .greeting,
+    .love-letter .paragraph,
+    .love-letter .signature {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        padding: 20px 20px 100px;
+    }
+    
+    .content-left {
+        order: 1;
+    }
+    
+    .content-right {
+        order: 0;
+        margin-bottom: 20px;
+        min-height: 60vh;
+    }
+    
+    .tree-container {
+        width: 80vw;
+        min-width: 300px;
+        height: 60vh;
+    }
+    
+    .time-block .number {
+        font-size: 56px;
+        min-width: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 15px 15px 80px;
+    }
+    
+    .love-letter .greeting,
+    .love-letter .paragraph,
+    .love-letter .signature {
+        font-size: 15px;
+    }
+    
+    .timer-title {
+        font-size: 16px;
+    }
+    
+    .time-block .number {
+        font-size: 38px;
+        min-width: 40px;
+    }
+    
+    .time-block .unit {
+        font-size: 13px;
+    }
+    
+    .tree-container {
+        width: 90vw;
+        min-width: 280px;
+        height: 55vh;
+    }
+    
+    .tree-svg {
+        width: 60%;
+    }
+    
+    .trunk {
+        stroke-width: 20;
+    }
+    
+    .branch-thin {
+        stroke-width: 3;
+    }
+    
+    .branch-tiny {
+        stroke-width: 2;
+    }
+    
+    .music-control {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .music-icon {
+        font-size: 20px;
+    }
+}
