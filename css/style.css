@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: 'ZCOOL KuaiLe', 'Microsoft YaHei', sans-serif;
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
     min-height: 100vh;
     background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     overflow: hidden;
@@ -216,27 +216,64 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50%;
+    width: 80%;
     height: 100%;
     z-index: 1;
     overflow: visible;
 }
 
-/* 树干 */
-.trunk {
+/* 主树干基础 - 加粗一倍 */
+.trunk-base {
     fill: none;
-    stroke: #2a1f15;
-    stroke-width: 45;
+    stroke: #3d2914;
+    stroke-width: 50;
     stroke-linecap: round;
     stroke-linejoin: round;
     filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.4));
 }
 
+/* 树干加粗部分 */
+.trunk-thick {
+    fill: none;
+    stroke: #4a3520;
+    stroke-width: 35;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* 树干纹理 */
+.trunk-texture {
+    fill: none;
+    stroke: #2a1a0a;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.4;
+}
+
+/* 长树枝 */
+.branch-long {
+    fill: none;
+    stroke: #4a3822;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* 中等树枝 */
+.branch-medium {
+    fill: none;
+    stroke: #5a4832;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 /* 细树枝 */
 .branch-thin {
     fill: none;
-    stroke: #5a4332;
-    stroke-width: 4;
+    stroke: #6b5842;
+    stroke-width: 5;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
@@ -244,20 +281,20 @@ body {
 /* 最细的树枝 */
 .branch-tiny {
     fill: none;
-    stroke: #6b5240;
-    stroke-width: 2;
+    stroke: #7a6850;
+    stroke-width: 3;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-/* 心形叶子容器 */
+/* 心形叶子容器 - 扩大一倍 */
 .hearts-container {
     position: absolute;
-    top: 0;
+    top: -10%;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    height: 60%;
+    width: 140%;
+    height: 75%;
     z-index: 2;
     pointer-events: none;
 }

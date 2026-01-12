@@ -21,9 +21,9 @@ const CONFIG = {
     ],
     
     // 动画设置
-    heartsCount: 500,           // 静态心形数量（密集心形）
-    fallingInterval: 150,       // 飘落心形生成间隔（毫秒）
-    fallingDuration: [6, 12],   // 飘落动画时长范围（秒）
+    heartsCount: 800,           // 静态心形数量（更密集）
+    fallingInterval: 120,       // 飘落心形生成间隔（毫秒）
+    fallingDuration: [7, 14],   // 飘落动画时长范围（秒）
 };
 
 // ==================== URL参数解析 ====================
@@ -124,8 +124,8 @@ function createStaticHearts() {
             const heartX = 16 * Math.pow(Math.sin(t), 3);
             const heartY = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
             
-            // 缩放比例（让心形充满容器）
-            const scale = Math.min(containerWidth, containerHeight) / 38;
+        // 缩放比例（让心形充满容器）- 扩大范围
+        const scale = Math.min(containerWidth, containerHeight) / 28;
             
             // 在心形内部随机分布（通过半径比例实现）
             x = centerX + heartX * scale * r;
@@ -193,7 +193,7 @@ function createFallingHeart() {
     const heartX = 16 * Math.pow(Math.sin(t), 3);
     const heartY = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
     
-    const scale = Math.min(containerWidth, containerHeight) / 38;
+    const scale = Math.min(containerWidth, containerHeight) / 28;
     
     const startX = centerX + heartX * scale * r;
     const startY = centerY + heartY * scale * r;
