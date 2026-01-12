@@ -6,7 +6,7 @@
     <meta name="description" content="爱的纪念 - 记录我们在一起的每一刻">
     <title>我爱你</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- 音乐控制按钮 -->
@@ -19,7 +19,7 @@
 
     <!-- 点击提示 -->
     <div class="click-hint" id="clickHint">
-        <p>点击任意位置开始</p>
+        <p>Click to start the surprise!🎁</p>
     </div>
 
     <div class="container">
@@ -73,21 +73,80 @@
         <!-- 右侧心形树 -->
         <div class="content-right">
             <div class="tree-container">
-                <!-- 树干 SVG -->
-                <svg class="tree-svg" viewBox="0 0 300 1000" preserveAspectRatio="xMidYMax meet">
-                    <!-- 主树干 - 从底部到心形底部 -->
-                    <path class="trunk" d="M150,1000 
-                        Q145,900 148,800 
-                        Q152,700 147,600 
-                        Q143,520 150,460" />
+                <!-- 榕树树干 SVG -->
+                <svg class="tree-svg" viewBox="0 -200 400 1200" preserveAspectRatio="xMidYMax meet">
+                    <!-- 主树干 - 下粗上细 -->
+                    <path class="trunk-base" d="M200,1000 
+                                               Q190,950 200,900 
+                                               Q210,850 200,800 
+                                               Q190,750 200,700 
+                                               Q210,650 200,600 
+                                               Q190,550 200,500 
+                                               Q210,450 200,400 
+                                               Q190,350 200,300 
+                                               Q210,250 200,200 
+                                               Q195,150 200,100 
+                                               Q205,50 200,0" />
                     
-                    <!-- 简单的几个小分支在树干上 -->
-                    <path class="branch-thin" d="M147,700 Q120,690 100,685" />
-                    <path class="branch-thin" d="M148,750 Q175,740 195,735" />
-                    <path class="branch-thin" d="M146,650 Q115,640 90,638" />
-                    <path class="branch-thin" d="M149,800 Q180,790 210,788" />
-                    <path class="branch-tiny" d="M147,850 Q125,845 110,843" />
-                    <path class="branch-tiny" d="M148,900 Q170,895 185,893" />
+                    <!-- 树干加粗部分（靠近地面的部分） -->
+                    <path class="trunk-thick" d="M170,1000 Q155,920 170,850 Q185,780 170,710 Q155,650 170,580" />
+                    <path class="trunk-thick" d="M230,1000 Q245,920 230,850 Q215,780 230,710 Q245,650 230,580" />
+                    
+                    <!-- 第一层长树枝 -->
+                    <path class="branch-long" d="M200,200 Q150,150 100,100 Q50,50 0,0" />
+                    <path class="branch-long" d="M200,200 Q250,150 300,100 Q350,50 400,0" />
+                    
+                    <!-- 第二层长树枝 -->
+                    <path class="branch-long" d="M200,300 Q160,250 120,200 Q80,150 40,100" />
+                    <path class="branch-long" d="M200,300 Q240,250 280,200 Q320,150 360,100" />
+                    
+                    <!-- 第三层长树枝 -->
+                    <path class="branch-long" d="M200,400 Q170,350 140,300 Q110,250 80,200" />
+                    <path class="branch-long" d="M200,400 Q230,350 260,300 Q290,250 320,200" />
+                    
+                    <!-- 第四层长树枝 -->
+                    <path class="branch-long" d="M200,500 Q180,450 160,400 Q140,350 120,300" />
+                    <path class="branch-long" d="M200,500 Q220,450 240,400 Q260,350 280,300" />
+                    
+                    <!-- 第五层长树枝 -->
+                    <path class="branch-long" d="M200,600 Q185,550 170,500 Q155,450 140,400" />
+                    <path class="branch-long" d="M200,600 Q215,550 230,500 Q245,450 260,400" />
+                    
+                    <!-- 第六层长树枝（较粗壮的较低层树枝） -->
+                    <path class="branch-long" d="M200,700 Q190,650 180,600 Q170,550 160,500" />
+                    <path class="branch-long" d="M200,700 Q210,650 220,600 Q230,550 240,500" />
+                    
+                    <!-- 次级分支 -->
+                    <path class="branch-medium" d="M100,100 Q70,70 40,40" />
+                    <path class="branch-medium" d="M300,100 Q330,70 360,40" />
+                    
+                    <path class="branch-medium" d="M120,200 Q90,170 60,140" />
+                    <path class="branch-medium" d="M280,200 Q310,170 340,140" />
+                    
+                    <path class="branch-medium" d="M140,300 Q110,270 80,240" />
+                    <path class="branch-medium" d="M260,300 Q290,270 320,240" />
+                    
+                    <!-- 细小末端枝条 -->
+                    <path class="branch-thin" d="M0,0 Q-20,-10 -40,-20" />
+                    <path class="branch-thin" d="M400,0 Q420,-10 440,-20" />
+                    
+                    <path class="branch-thin" d="M40,100 Q20,80 0,60" />
+                    <path class="branch-thin" d="M360,100 Q380,80 400,60" />
+                    
+                    <path class="branch-thin" d="M80,200 Q60,180 40,160" />
+                    <path class="branch-thin" d="M320,200 Q340,180 360,160" />
+                    
+                    <!-- 顶部细枝 -->
+                    <path class="branch-tiny" d="M200,100 Q180,70 160,50" />
+                    <path class="branch-tiny" d="M200,100 Q220,70 240,50" />
+                    
+                    <!-- 树干纹理 -->
+                    <path class="trunk-texture" d="M195,950 Q193,900 195,850" />
+                    <path class="trunk-texture" d="M205,850 Q203,800 205,750" />
+                    <path class="trunk-texture" d="M195,750 Q193,700 195,650" />
+                    <path class="trunk-texture" d="M205,650 Q203,600 205,550" />
+                    <path class="trunk-texture" d="M195,550 Q193,500 195,450" />
+                    <path class="trunk-texture" d="M205,450 Q203,400 205,350" />
                 </svg>
                 
                 <!-- 心形叶子容器 -->
